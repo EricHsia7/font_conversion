@@ -130,8 +130,12 @@ background:transparent;
 <input id="text" onchange="textout()">
 <label for="textsize" id="textsizelab">
   <input id="textsize" name="textsize" onchange="textsize()" value="20">PX
+  </label>
+  <label for="textcolor" id="textcolor">
+  <input id="textcolor" name="textcolor" onchange="textcolor()" value="#000000">
+    </label>
 </label>
-  <a href="javascript:exp()"><div class="expbtn"></div></a>
+  <a href="javascript:exp()" style="margin-top:30px;"><div class="expbtn"></div></a>
 </div>
   <script>
 $('#loadbox,#outbox').fadeOut(1);
@@ -186,7 +190,9 @@ document.getElementById('textoutput').innerHTML = document.getElementById('text'
 function textsize() {
 $('#textoutput').css({'font-size': document.getElementById('textsize').value + 'px'});
 }
-    
+function textcolor() {
+ $('#textoutput').css({'color': document.getElementById('textcolor').value}); 
+}
 
   </script>
 
