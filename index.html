@@ -153,10 +153,14 @@ function handleFileSelect(evt) {
     
     
     function exp() {
-  $('#textoutput').css({'background':'transparent'});
-        var container = document.querySelector("#textoutput");
+var container = document.getElementById("textoutput");
             html2canvas(container, { allowTaint: true, backgroundColor: null }).then(function (canvas) {
-                document.querySelector("#outimage").innerHTML = '<img src="' + canvas.toDataURL() + '">' ;
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "image.png";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
             });
 }
 function textout() {
