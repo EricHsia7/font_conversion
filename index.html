@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+  <script src="html2canvas.js"></script>
   <title>字體轉圖片</title>
   <style>
   body {
@@ -155,12 +155,7 @@ function handleFileSelect(evt) {
     function exp() {
 var container = document.getElementById("textoutput");
             html2canvas(container, { allowTaint: true, backgroundColor: null }).then(function (canvas) {
-                var link = document.createElement("a");
-                document.body.appendChild(link);
-                link.download = "image.png";
-                link.href = canvas.toDataURL();
-                link.target = '_blank';
-                link.click();
+                $('#outimage').html('<img src="' + canvas.toDataURL() + '">');
             });
 }
 function textout() {
