@@ -48,6 +48,14 @@ border-radius:99em;
 overflow:hidden;
 
 }
+.expbtn {
+background:url(exportbtn.png);
+background-size:cover;
+border-radius:8px;
+width:120px;
+height:37px;
+}
+    
 
 .bar .bar2 {
 width:10%;
@@ -123,7 +131,7 @@ background:transparent;
 <label for="textsize" id="textsizelab">
   <input id="textsize" name="textsize" onchange="textsize()" value="20">PX
 </label>
-  <a href="javascript:exp()">轉換</a>
+  <a href="javascript:exp()"><div class="expbtn"></div></a>
 </div>
   <script>
 $('#loadbox,#outbox').fadeOut(1);
