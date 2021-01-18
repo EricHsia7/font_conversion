@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <title>字體轉圖片</title>
+  <style>
+  body {
+  margin:0px;
+  padding:0px;
+  }
+.box {
+width:100vw;
+height:100vh;
+background:#fff;
+border-radius:0px;
+padding:0px;
+display: flex;
+  justify-content: center;
+  align-items: center;
+word-break: break-all;
+position: fixed;
+top:0px;
+left:0%;
+overflow: scroll;
+}
+* {-webkit-appearance:none;outline:none; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.filebtn {
+background:url(openfilebtn.png);
+background-size:cover;
+border-radius:8px;
+width:120px;
+height:37px;
+}
+#files {
+display:none;
+}
+.bar {
+width:150px;
+height:15px;
+background:#e3e3e3;
+border-radius:99em;
+
+overflow:hidden;
+
+}
+
+.bar .bar2 {
+width:10%;
+height:15px;
+background:#0067FF;
+border-radius:99em;
+}
+.line {
+height:100vh;
+width:2px;
+background:#e3e3e3;
+}
+#textoutput {
+padding:10px;
+background:#e3e3e3;
+}
+</style>
+<style id="style"></style>
+</head>
+<body>
+<div class="box" id="open">
+<label for="files">
+<div class="filebtn"></div>
+<input type="file" id="files" name="files" />
+</label><br>
+<p>目前只支援TTF(truetype)</p>
+
+</div>
+
+<div class="box" id="loadbox">
+<p>正在載入檔案</p>
+<div class="bar"><div class="bar2"></div></div>
+
+</div>
+<br>
+
+<div class="box" id="outbox" style="justify-content:none; flex-direction: column; align-items: none;">
+
+<div id="textoutput" style="font-family: font;"></div>
+
+<input id="text" onchange="textout()">
+<label for="textsize">
+<input id="textsize" name="textsize" onchange="textsize()" value="20">px
+</label>
+</div>
+  <script>
+$('#loadbox,#outbox').fadeOut(1);
+var cc = 0 ;
+
+ function c() {
+  cc += 0.1 ;
+  $('.bar2').animate({'width': cc + '%'},1);
+  }
+  // Check for the File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  var load = setInterval(c, 3);
+  $('.bar2').css({'width':'0%'});
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+function handleFileSelect(evt) {
+  var f = evt.target.files[0]; // FileList object
+  var reader = new FileReader();
+  // Closure to capture the file information.
+  reader.onload = (function(theFile) {
+    return function(e) {
+      var binaryData = e.target.result;
+      //Converting Binary Data to base 64
+      var base64String = window.btoa(binaryData);
+      //showing file converted to base64
+      clearInterval(load);
+      $('#loadbox').fadeIn(1);
+      $('.bar2').animate({'width':'100%'},333);
+      $('#style').html('@font-face {font-family: font;src: url(data:font/truetype;charset=utf-8;base64,' + base64String + ');font-display：swap;}');
+      $('#outbox').delay(3000).fadeIn(1);
+      alert('File converted to base64 successfuly!\nCheck in Textarea');
+    };
+  })(f);
+  // Read in the image file as a data URL.
+  reader.readAsBinaryString(f);
+}
+function textout() {
+document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
+}
+
+function textsize() {
+$('#textoutput').css({'font-size': document.getElementById('textsize').value + 'px'});
+}
+
+  </script>
+
+</body>
+</html>
