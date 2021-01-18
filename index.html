@@ -160,12 +160,12 @@ var container = document.getElementById("textoutput");
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
-exp();
+setTimeout('exp();', 100);
 }
 
 function textsize() {
 $('#textoutput').css({'font-size': document.getElementById('textsize').value + 'px'});
-exp();
+setTimeout('exp();', 100);
 }
     
 
