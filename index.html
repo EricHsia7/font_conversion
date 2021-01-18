@@ -153,14 +153,13 @@ function handleFileSelect(evt) {
     
     function exports() {
   $('#textoutput').css({'background':'transparent'});
-        var container = document.querySelector(".ansbox");
+        var container = document.querySelector("#textoutput");
             html2canvas(container, { allowTaint: true, backgroundColor: null }).then(function (canvas) {
                 var link = document.createElement("a");
                 document.body.appendChild(link);
                 link.download = "image.png";
                 link.href = canvas.toDataURL();
                 link.target = '_blank';
-                link.click();
                 $('#outimage').html('<img src="' + canvas.toDataURL() + '">');
             });
 
