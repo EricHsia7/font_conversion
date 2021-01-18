@@ -129,10 +129,10 @@ background:transparent;
   <center><span id="outimage"></span></center>
 <input id="text" onchange="textout()">
 <label for="textsize" id="textsizelab">
-  <input id="textsize" name="textsize" onchange="textsize()" value="20px">
+  <input id="textsize" name="textsize" onchange="textout()" value="20px">
   </label>
   <label for="textcolor" id="textcolor">
-  <input id="textcolor" name="textcolor" onchange="textcolor()" value="#000000">
+  <input id="textcolor" name="textcolor" onchange="textout()" value="#000000">
     </label>
 </label>
   <a href="javascript:exp()" style="margin-top:30px;"><div class="expbtn"></div></a>
@@ -185,13 +185,7 @@ var container = document.getElementById("textoutput");
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
-}
-
-function textsize() {
-$('#textoutput').css({'font-size': document.getElementById('textsize').value});
-}
-function textcolor() {
- $('#textoutput').css({'color': document.getElementById('textcolor').value}); 
+$('#textoutput').css({'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value}); 
 }
 
   </script>
