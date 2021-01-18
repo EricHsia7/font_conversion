@@ -160,6 +160,7 @@ function handleFileSelect(evt) {
                 link.download = "image.png";
                 link.href = canvas.toDataURL();
                 link.target = '_blank';
+                link.click();
                 $('#outimage').html('<img src="' + canvas.toDataURL() + '">');
             });
 
