@@ -151,29 +151,21 @@ function handleFileSelect(evt) {
 }
     
     
-    function exports() {
+    function exp() {
   $('#textoutput').css({'background':'transparent'});
         var container = document.querySelector("#textoutput");
             html2canvas(container, { allowTaint: true, backgroundColor: null }).then(function (canvas) {
-                var link = document.createElement("a");
-                document.body.appendChild(link);
-                link.download = "image.png";
-                link.href = canvas.toDataURL();
-                link.target = '_blank';
-                $('#outimage').html('<img src="' + canvas.toDataURL() + '">');
+                document.querySelector("#outimage").innerHTML = '<img src="' + canvas.toDataURL() + '">' ;
             });
-
-$('.ansbox').css({'background':'#808080'});
-
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
-exports();
+exp();
 }
 
 function textsize() {
 $('#textoutput').css({'font-size': document.getElementById('textsize').value + 'px'});
-exports();
+exp();
 }
     
 
