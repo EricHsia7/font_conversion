@@ -105,7 +105,7 @@ background:#e3e3e3;
 
 <div class="box" id="outbox" style="justify-content:none; flex-direction: column; align-items: none;">
 
-<div id="textoutput" style="font-family: font;"></div>
+<div id="textoutput" style="font-family: font;opacity:0"></div>
   <span id="outimage"></span>
 <input id="text" onchange="textout()">
 <label for="textsize" id="textsizelab">
@@ -153,10 +153,12 @@ function handleFileSelect(evt) {
     
     
     function exp() {
+      $('#textoutput').fadeIn(1);
 var container = document.getElementById("textoutput");
             html2canvas(container, { allowTaint: true, backgroundColor: null }).then(function (canvas) {
                 $('#outimage').html('<img src="' + canvas.toDataURL() + '">');
             });
+            $('#textoutput').fadeOut(1);
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
