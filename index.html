@@ -74,7 +74,7 @@ background:transparent;
 }
     p{font-family: 'Noto Sans TC', sans-serif;font-weight:400}
     h1 {font-family: 'Noto Sans TC', sans-serif;font-weight:900}
-    #text ,#textsize {
+    #text ,#textsize ,#textcolor {
       width:150px;
       height:45px;
       font-size:30px;
@@ -129,7 +129,7 @@ background:transparent;
   <center><span id="outimage"></span></center>
 <input id="text" onchange="textout()">
 <label for="textsize" id="textsizelab">
-  <input id="textsize" name="textsize" onchange="textsize()" value="20">PX
+  <input id="textsize" name="textsize" onchange="textsize()" value="20px">
   </label>
   <label for="textcolor" id="textcolor">
   <input id="textcolor" name="textcolor" onchange="textcolor()" value="#000000">
@@ -188,7 +188,7 @@ document.getElementById('textoutput').innerHTML = document.getElementById('text'
 }
 
 function textsize() {
-$('#textoutput').css({'font-size': document.getElementById('textsize').value + 'px'});
+$('#textoutput').css({'font-size': document.getElementById('textsize').value});
 }
 function textcolor() {
  $('#textoutput').css({'color': document.getElementById('textcolor').value}); 
