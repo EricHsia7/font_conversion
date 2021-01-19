@@ -154,6 +154,10 @@ background:transparent;
   <label for="textcolor" id="textcolors">
   顏色:<input id="textcolor" name="textcolor" onchange="textout()" value="#000000">
     </label>
+    
+  <label for="textbg" id="textbgs">
+  背景:<input id="textbg" name="textbg" onchange="textout()" value="none">
+    </label>
 </label>
   <br><br>
   <a href="javascript:exp()" style="margin-top:30px;"><div class="expbtn"></div></a>
@@ -207,7 +211,7 @@ var container = document.getElementById("textoutput");
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
-$('#textoutput').css({'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value}); 
+$('#textoutput').css({'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value,'background': document.getElementById('textbg').value}); 
 }
 
   </script>
