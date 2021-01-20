@@ -227,6 +227,43 @@ overflow: hidden;
     transform: translate(-50%, -50%) scale(0);
     overflow: hidden;
 }
+    
+    .ans {
+  background:#fff;
+  padding:15px;
+  border-radius:99em;
+  box-shadow:0 0 15px 1px rgba(0,0,0,0.05);
+  color:#333;
+  text-decoration:none;
+  font-size:20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.ans::before {
+    content:'';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 99em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+    transition: transform .3s, opacity 1s;
+    width:100%;
+    height:100%;
+overflow: hidden;
+-webkit-filter: blur(1px);
+  filter: blur(1px);
+}
+
+.ans:active::before {
+    transition: 0s;
+    opacity: .6;
+    transform: translate(-50%, -50%) scale(0);
+    overflow: hidden;
+}
 </style>
 <style id="style"></style>
 </head>
@@ -274,7 +311,35 @@ overflow: hidden;
 </div>
   
   
+  <div style="width:100%;height:calc(100% - 49px);position:fixed;top:0px;left:0px;display:none;" id="bellbg">
+  <center><h1>公告</h1></center>
+    <center><div class="gbox"><center id="betxt">...</center></div></center>
+  </div>
   
+  <div style="width:100%;height:calc(100% - 49px);position:fixed;top:0px;left:0px;display:none;overflow: scroll;" id="morebg">
+            <center><h1>更多</h1></center>
+    <center>
+                <a href="javascript:window.location.reload()" class="ans" >
+                  重新整理
+                </a>
+      <br>
+      <br>
+      <br>
+                <a href="javascript:privacys()" class="ans" >
+                    隱私
+                </a>
+            <br>
+      <br>
+      <br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScEKavbtmi0aZSVbX9HUIEvvjQ4tPZ_ABlyMLa9RMk20Fd3UA/viewform" class="ans" target="_blank">
+                    意見回饋
+                </a>
+                <br />
+                <br />
+                <br />
+                <br />
+            </center>
+  </div>
   
     <div id="bottom" class="bottombar">
         <div class="bottom-btn-b" style="left: 0%;">
@@ -338,6 +403,32 @@ document.getElementById('textoutput').innerHTML = document.getElementById('text'
 $('#textoutput').css({'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value,'background': document.getElementById('textbg').value}); 
 }
 
+    
+    function home() {
+  $('#hico').attr('src','icon/home_1.png');
+  $('#bico').attr('src','icon/bell.png');
+  $('#mico').attr('src','icon/more.png');
+  
+  $('#bellbg').fadeOut(1);
+  $('#morebg').fadeOut(1);
+}
+  
+  function bell() {
+  $('#hico').attr('src','icon/home.png');
+  $('#bico').attr('src','icon/bell_1.png');
+  $('#mico').attr('src','icon/more.png');
+    
+  $('#bellbg').fadeIn(1);
+  $('#morebg').fadeOut(1);
+}
+  function more() {
+  $('#hico').attr('src','icon/home.png');
+  $('#bico').attr('src','icon/bell.png');
+  $('#mico').attr('src','icon/more_1.png');
+  
+  $('#bellbg').fadeOut(1);
+  $('#morebg').fadeIn(1);
+}
   </script>
 
 </body>
