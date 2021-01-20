@@ -266,6 +266,19 @@ overflow: hidden;
 }
     #bellbg {background:#fff;}
 #morebg {background:#fff;}
+      .gbox {
+    padding:10px;
+width:80%;
+max-width:400px;
+background:#fff;
+box-shadow:0 0 15px 1px rgba(0,0,0,0.05);
+height:auto;
+min-height:110px;
+margin-top:30px;
+border-radius:15px;
+position: relative;
+  }
+
 </style>
 <style id="style"></style>
 </head>
@@ -317,7 +330,10 @@ overflow: hidden;
   <center><h1>公告</h1></center>
     <center><div class="gbox"><center id="betxt">...</center></div></center>
   </div>
-  
+  <script>
+   $('#betxt').load('https://docs.google.com/spreadsheets/d/e/2PACX-1vRKdXWiF7QlLbQQhy-6IcBs0ObJOUQJIDmLiXjLO93vfqQsItSUHWt0w9gOXu0mI8acMeIOkl4sfTfe/pub?gid=0&single=true&output=csv');
+  </script>
+
   <div style="width:100%;height:calc(100% - 49px);position:fixed;top:0px;left:0px;display:none;overflow: scroll;" id="morebg">
             <center><h1>更多</h1></center>
     <center>
