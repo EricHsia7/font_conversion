@@ -278,7 +278,31 @@ margin-top:30px;
 border-radius:15px;
 position: relative;
   }
-
+  .privacytopbar {
+    width: 100%;
+    height: 52px;
+    color: #212121;
+    font-size: 25px;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    background: #fff;
+    box-shadow:0 0 15px 1px rgba(0,0,0,0.05);
+}
+  .privacybg {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.85);
+    background:#fff;
+    overflow: hidden;
+    display:none;
+  }
 </style>
 <style id="style"></style>
 </head>
@@ -357,6 +381,11 @@ position: relative;
                 <br />
                 <br />
             </center>
+  </div>
+  
+  <div class="privacybg">
+    <div class="privacytopbar"><z style="transform:translate(-50%,-50%);position:absolute;top:50%;left:50%;">隱私</z><a href="javascript:privacyss()"><img src="icon/close.png" style="position:absolute;top:15px;right:15px;height:calc(52px - 30px);" id="closebtn"></a></div>
+    <div id="privacyinner" style="padding:10px;position:absolute;top:52px;left:0px;height:calc(100% - 52px);width:clac(100% - 20px);overflow:scroll;"></div>
   </div>
   
     <div id="bottom" class="bottombar">
@@ -447,6 +476,21 @@ $('#textoutput').css({'font-size': document.getElementById('textsize').value,'co
   $('#bellbg').fadeOut(1);
   $('#morebg').fadeIn(1);
 }
+    
+    function privacys() {
+    $.ajax({
+            type:"get",
+            url:'https://erichsia7.github.io/question/privacy.md' ,
+            dataType:"html",
+            success:function(res){
+            $('#privacyinner').html(marked(res));
+            }
+        })
+    $('.privacybg').fadeIn(222).css({'transform':'translate(-50%,-50%) scale(' + 1 + ')','transition':'.5s'});
+  }
+  function privacyss() {
+    $('.privacybg').fadeOut(222).css({'transform':'translate(-50%,-50%) scale(' + .85 + ')','transition':'.5s'});
+  }
   </script>
 
 </body>
