@@ -359,10 +359,6 @@ position:fixed;left:0px;top:0px;width:100%;height:100%;background: #0067FF;
   顏色:<input id="textcolor" name="textcolor" onchange="textout()" value="#000000">
     </label>
     <br>
-    <label for="textborder" id="textborders">
-  邊框:<input id="textborder" name="textborder" onchange="textout()" value="1px #000">
-    </label>
-    <br>
   <label for="textbg" id="textbgs">
   背景:<input id="textbg" name="textbg" onchange="textout()" value="none">
     </label>
@@ -485,7 +481,7 @@ var container = document.getElementById("textoutput");
 }
 function textout() {
 document.getElementById('textoutput').innerHTML = document.getElementById('text').value ;
-$('#textoutput').css({'-webkit-text-stroke':document.getElementById('textborder').value,'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value,'background': document.getElementById('textbg').value}); 
+$('#textoutput').css({'font-size': document.getElementById('textsize').value,'color': document.getElementById('textcolor').value,'background': document.getElementById('textbg').value}); 
 }
 
     
